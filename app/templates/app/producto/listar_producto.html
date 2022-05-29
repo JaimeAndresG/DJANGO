@@ -1,0 +1,50 @@
+{% extends 'app/producto/baseprod.html' %}
+{% load static %}
+{% block contenidouser %}
+<div  class="container sm-xl">
+ <div class="row">
+    <h4 class="text-center teal lighten-4" style="font-family: Arial, Helvetica, sans-serif;"> Listar Productos</h4>
+    
+    <table class="table highlight table-condensed responsive-table teal lighten-4 rounded mt-4">
+        <thead>
+        <tr>
+        <td>CODIGO</td>
+        <td>NOMBRE</td>
+        <td>MARCA</td>
+        <td>PRECIO</td>
+        <td>STOCK</td>
+        <td>DESCRIPCION</td>
+        <td>TIPO</td>
+        <td>IMAGEN</td>
+        <td>FECHA INGRESO</td>
+        </tr>
+        </thead>
+        <Tbody>
+            {% for aux in listaProductos %}
+                        <tr>
+                            <td>{{ aux.codigo }}</td>
+                            <td>{{ aux.nombre }}</td>
+                            <td>{{ aux.marca }}</td>
+                            <td>{{ aux.precio }}</td>
+                            <td>{{ aux.stock }}</td>
+                            <td>{{ aux.descripcion }}</td>
+                            <td>{{ aux.tipo }}</td>
+                            <td><img src="{{aux.imagen.url }}" style="width: 50px;"></td>
+                            <td>{{ aux.created_at }}</td>
+                            <td>
+                                <a href="{% url 'modificar_producto' aux.codigo %}" class="btn btn-info">Modificar</a>
+                                <a href="{% url 'eliminar_producto' aux.codigo %}" class="btn red darken-3">Eliminar</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+        </tbody>
+    </table>
+
+
+ </div>
+
+    
+ 
+</div>
+
+{% endblock %}

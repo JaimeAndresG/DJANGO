@@ -1,0 +1,106 @@
+{% extends 'app/perfil/baseperfil.html' %}
+{% load static %}
+{% block contenidoperfil %}
+
+<div class="col-sm-10">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
+
+      </div>
+      <div class="col-sm-8 mt-5 ">
+
+
+        <p class="compra-title text-center">Seguimiento Orden#145673565</p>
+
+
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">
+              <p class="compra-title2">Orden#145673565</p>
+            </h4>
+
+            <blockquote> Estado:
+              En Reparto <div class="spinner-grow spinner-grow-sm text-danger" role="status">
+
+              </div>
+            </blockquote>
+            <div class="row ">
+              <div class="col-sm-4  d-flex justify-content-center">
+
+                <i class="fa-solid fa-box-open fa-4x mt-5"></i>
+
+              </div>
+              <div class="col-sm-4  d-flex justify-content-center">
+                <i class="fa-solid fa-truck fa-4x mt-5"></i>
+              </div>
+
+              <div class="col-sm-4  d-flex justify-content-center">
+                <i class="fa-solid fa-house-user fa-4x mt-5"></i>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-sm-4 text-center seguimientotxt"> En Preparacion <i class="fa-solid fa-check"></i></div>
+              <div class="col-sm-4 text-center seguimientotxt">En Reparto
+                <div class="spinner-grow spinner-grow-sm text-success" role="status">
+
+                </div>
+              </div>
+
+              <div class="col-sm-4 text-center seguimientotxt">Entregado</div>
+
+
+            </div>
+            <div class="progress">
+
+              <div class="determinate" style="width: 50%;"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">
+              <p class="compra-title2">Orden#145673565</p>
+            </h4>
+            <div class="row">
+              <div class="col-sm-3"><img class="imgcompra" src="{% static 'app/img/Baño ecologico para perros.jpg' %}">
+              </div>
+              <div class="col-sm-9">
+                <p class="card-text compra-texto mt-5">
+                  Baño para mascotas
+                </p>
+                <p class="text-secondary">Baño ecologico para perros | 1 unidad</p>
+              </div>
+
+            </div>
+
+
+
+            <p class="compra-texto">Total: $6.500 clp</p>
+            <div class="d-flex justify-content-end">
+              <a href="#" class="card-link btn">Volver a comprar</a>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="col-sm-2 "></div>
+
+  </div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+{%endblock%}

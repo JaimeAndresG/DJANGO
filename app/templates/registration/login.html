@@ -1,0 +1,17 @@
+
+{% extends 'app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+<div class="container bg-light">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form | crispy }}
+    <button type="submit" class="btn btn-success">Iniciar sesión</button>
+    <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+    </form>
+
+</div>
+
+    {% endblock %}
+

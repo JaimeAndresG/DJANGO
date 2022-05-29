@@ -1,0 +1,47 @@
+{% extends 'app/producto/baseprod.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+
+{% block contenidouser %}
+
+
+
+<script>
+  Swal.fire('Any fool can use a computer')
+</script>
+<div class="container">
+  <h4 class="text-center teal lighten-4" style="font-family: Arial, Helvetica, sans-serif;"> Listar Productos</h4>
+<div  class="m-5 teal lighten-4">
+  <script src="{% static 'app/js/prueba.js'%}"></script>
+  <form action="" method="POST" class="m-5" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+      {{ form|crispy }}
+    </table>
+    <input type="submit" class="btn mt-5" value="Modificar">
+  </form>
+
+  {{ mensaje }}
+</div>
+</div>
+
+{% endblock %}
+{% block css %}
+
+{% if messages %}
+                    {% for msj in messages %}
+                        <script>
+                            Swal.fire({
+                                title: 'Guardado!',
+                                text: '{{ msj }}',
+                                icon: 'success',
+                                showConfirmButton: false,
+                                timer: 2000
+                            });
+                        </script>
+                    {% endfor %}
+                {% endif %}
+{% endblock %}

@@ -1,0 +1,98 @@
+.sus:hover{
+    color: blanchedalmond;
+}
+
+
+.nav-item{
+    height: 50px;
+}
+
+
+.username{
+    font-size: large; 
+    font-weight: bold;
+
+}
+.titulo-pagina{
+    font-size: 45px;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+.compra-title{
+    font-size: 35px; 
+    font-weight: bold;
+
+}
+.compra-title2{
+    font-size: 35px; 
+    
+}
+.compra-texto{
+
+    font-weight: 600;
+    font-size: larger;
+}
+.imgcompra{
+    width: 200px;
+}
+
+.seguimientotxt{
+    font-size: larger
+    ;
+}
+.nav-link {
+    color: white;
+}
+
+.nav-link .fa {
+    transition: all 1s;
+}
+
+.nav-link:hover .fa {
+    transform: rotate(360deg);
+    font-size: 18px;
+    
+}
+
+.nav-link:hover {
+    color: white;
+    background-color: gray;
+}
+
+.activo {
+    background-color:rgb(39, 168, 125);
+    
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+#imgsubs img{
+    text-align: center;
+    margin: auto;
+    display: block;
+}
+#imgres img{
+    text-align: center;
+    margin: auto;
+    display: block;
+}
+#fondo{
+    background-image: url(../img/fondo.jpg);
+    background-attachment: fixed;
+}
+
+.page-footer{
+    background-image: url(../img/fondo\ de\ pantalla.jpg);
+    background-size: cover;
+    background-position:top;
+}
+
+.navbar{
+    background-image: url(../img/fondo\ de\ pantalla.jpg);
+    background-size: cover;
+    background-position:top;
+}

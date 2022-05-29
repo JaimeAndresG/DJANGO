@@ -1,0 +1,46 @@
+{% extends 'app/user/baseuser.html' %}
+{% load static %}
+{% block contenidouser %}
+<div  class="container sm-xl">
+    <h4 class="text-center teal lighten-4" style="font-family: Arial, Helvetica, sans-serif;"> Modificar User</h4>
+ <div class="row">
+    <table class="table highlight table-condensed responsive-table teal lighten-4 rounded">
+        <thead>
+        <tr>
+        <td>Run</td>
+        <td>NOMBRE</td>
+        <td>APELLIDO</td>
+        <td>EMAIL</td>
+        <td>CONTRASEÑA</td>
+        <td>SUB</td>
+        <td>DIRECCION</td>
+        <td>IMAGEN</td>
+        </tr>
+        </thead>
+        <Tbody>
+            {% for aux in listaUser %}
+                        <tr>
+                            <td>{{ aux.run }}</td>
+                            <td>{{ aux.nombre }}</td>
+                            <td>{{ aux.apellido }}</td>
+                            <td>{{ aux.email }}</td>
+                            <td>{{ aux.contraseña }}</td>
+                            <td>{{ aux.sub }}</td>
+                            <td>{{ aux.direccion }}</td>
+                            <td><img src="{{aux.imagen.url }}" style="width: 50px;"></td>
+                            
+                            <td>
+                                <a href="{% url 'modificar_user' aux.run %}" class="btn btn-info">Modificar</a>
+                                <a onclick="confirmDeleteUser({{aux.run}})" class="btn red darken-3">Eliminar</a>
+                                
+                            </td>
+                        </tr>
+                    {% endfor %}
+        </tbody>
+    </table>
+
+
+ </div>
+</div>
+
+{% endblock %}

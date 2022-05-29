@@ -1,0 +1,120 @@
+{% extends 'app/perfil/baseperfil.html' %}
+{% load static %}
+{% block contenidoperfil %}
+<div class="col-sm-10">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
+
+      </div>
+      <div class="col-sm-8 mt-5 ">
+
+
+        <p class="compra-title text-center">Ultimas Compras</p>
+
+
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">
+              <p class="compra-title2">Orden#145673565</p>
+            </h4>
+            <div class="row">
+              <div class="col-sm-3"><img class="imgcompra" src="{% static 'app/img/Baño ecologico para perros.jpg' %}">
+              </div>
+              <div class="col-sm-9">
+                <p class="card-text compra-texto mt-5">
+                  Baño para mascotas
+                </p>
+                <p class="text-secondary">Baño ecologico para perros | 1 unidad</p>
+              </div>
+
+            </div>
+
+
+
+            <p class="compra-texto">Total: $6.500 clp</p>
+            <div class="d-flex justify-content-end">
+              <a href="{% url 'seguimiento' %}" class="card-link btn">Seguimiento de compra</a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">
+              <p class="compra-title2">Orden#132673565</p>
+            </h4>
+            <div class="row">
+              <div class="col-sm-3"><img class="imgcompra" src="{% static 'app/img/baberos.jpg' %}"></div>
+              <div class="col-sm-9">
+                <p class="card-text compra-texto mt-5">
+                  Baberos
+                </p>
+                <p class="text-secondary"> babero para mascotas | 4 unidades</p>
+              </div>
+
+            </div>
+
+
+
+            <p class="compra-texto">Total: $17.600 clp</p>
+            <div class="d-flex justify-content-end">
+              <a href="#" class="card-link btn">Orden Finalizada</a>
+            </div>
+
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">
+              <p class="compra-title2">Orden#18373565</p>
+            </h4>
+            <div class="row">
+              <div class="col-sm-3"><img class="imgcompra" src="{% static 'app/img/dispensador de alimentos.jpg' %}">
+              </div>
+              <div class="col-sm-9">
+                <p class="card-text compra-texto mt-5">
+                  Dispensador de alimentos
+                </p>
+                <p class="text-secondary">Dispensador de alimentos | 2 unidades</p>
+              </div>
+              <div class="col-sm-3"><img class="imgcompra" src="{% static 'app/img/rascador para gatos.jpg' %}"></div>
+              <div class="col-sm-9">
+                <p class="card-text compra-texto mt-5">
+                  Rascador
+                </p>
+                <p class="text-secondary">Rascador para gatos | 1 unidad</p>
+              </div>
+              <div class="col-sm-3"><img class="imgcompra" src="{% static 'app/img/arena para gatos.png' %}"></div>
+              <div class="col-sm-9">
+                <p class="card-text compra-texto mt-5">
+                  Arena para gatos
+                </p>
+                <p class="text-secondary">Ecologica y muy segura | 3 unidades</p>
+              </div>
+
+
+            </div>
+
+
+
+            <p class="compra-texto">Total: $129.500 clp</p>
+            <div class="d-flex justify-content-end">
+              <a href="#" class="card-link btn">Orden Finalizada</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2 "></div>
+
+    </div>
+
+  </div>
+
+</div>
+</div>
+</div>
+
+{%endblock%}

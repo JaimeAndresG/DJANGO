@@ -1,0 +1,109 @@
+{% extends 'app/perfil/baseperfil.html' %}
+{% load static %}
+{% block contenidoperfil %}
+<div class="container mt-4 te">
+  <h4 class="text-center" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Mi Carrito
+  </h4>
+  {% for aux in listaCarro %}
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">
+        <p class="compra-title2"></p>
+      </h4>
+      <div class="row">
+        <div class="col-sm-3"><img class="imgcompra" src="{{aux.producto.imagen.url }}"></div>
+        <div class="col-sm-9">
+          <p class="card-text compra-texto mt-5">
+           
+            {{ aux.producto.nombre }}
+              
+          </p>
+          <p class="text-secondary"> {{ aux.producto.descripcion }}</p>
+          <p> ${{ aux.producto.precio }} </p>
+        </div>
+        
+      </div>
+
+     
+      <div class="d-flex justify-content-end">
+        
+        <a onclick="confirmDelete({{aux.codigo}})" class="btn red darken-4">Eliminar</a>
+
+      </div>
+
+    </div>
+  </div>
+  {% endfor %}
+
+
+</div>
+<!-- INICIO Suscriptor-->
+<div class="modal" id="modalPago">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header Suscriptor-->
+      <div class="modal-header">
+        <h4 style="font-family: Arial;" class="modal-title">Pago</h4>
+        <img src="img/211635_card_icon.png" width="80px" alt="">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body Suscriptor -->
+      <div class="modal-body" id="imgsubs">
+          <form">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3"></div>
+              <div class="col-sm-9">
+              </div>
+          </div>
+          </div>
+          <div>
+          <p class="compra-texto">Subtotal: <strike> $37.000 clp</strike></p>
+          <hr>
+          <p class="compra-texto">Descuento Subs 20%: -$7400  clp</p>
+          <hr>
+          <p class="compra-texto">Total Productos: $29.600  clp</p>
+          </div>
+          <div class="form-group mt-2">
+            <p>Metodos de Pagos</p>
+            <p>
+              <label class="letra ">
+                <input class="with-gap" name="group1" type="radio"  />
+                <span>Debito</span>
+              </label>
+            </p>
+            
+            <p>
+              <label>
+                <input class="with-gap" name="group1" type="radio"  />
+                <span>Credito</span>
+
+                <div class="row">
+                  <div class="col-sm-3">
+                    <img src="{% static 'app/img/1933702_charge_credit card_debit_payment_visa_icon.png' %}" width="70px" alt="">
+                  </div>
+                <div class="col-sm-3">
+                  <div>
+                    <img src="{% static 'app/img/206680_master_method_card_payment_icon.png' %}" width="60px" alt="">
+                  </div>
+                </div>
+               </div>
+              </label>
+            </p>
+          </div>
+          </form>
+      </div>
+
+      <!-- Modal footer Suscripción -->
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn blue darken-4" data-target="modal">Pagar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{%endblock%}

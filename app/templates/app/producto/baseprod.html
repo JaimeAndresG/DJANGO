@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas</title>
+    {% load static %}
+   <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+ 
+  <!-- jQuery library -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+  <!-- aqui estaba parte del link de materialized que se elimino ,debido que no permite hacer funcionar 
+       el formulario -->
+    <link href="{% static 'app/css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="{% static 'app/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link href="{% static 'app/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+  
+
+  
+
+
+
+</head>
+<body>
+  
+
+  <!-- INICIO Navbar--> 
+    <nav class="nav-wraper navbar " style="min-height: 180px;">
+      <div class="container-fluid"> 
+        <a class="navbar-brand " href="#">
+          <img src="{% static 'app/img/Logo_Mascota-removebg-preview.png' %}" alt="" width="130"> <span class="titulo-pagina">Pets Shop</span>
+        </a>
+        
+  
+        <a href="#" class="sidenav-trigger" data-target="mobile-links">
+          <i class="fa-solid fa-bars"></i>
+        </a>
+
+        <ul class=" hide-on-med-and-down">
+          
+          <li>
+            <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <i class="material-icons prefix">search</i>
+                    <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                    <label for="icon_prefix2"></label>
+                  </div>
+                </div>
+              </form>
+          </li>
+          
+          <li class=""  >
+              <a class="" href="#" data-toggle="modal" data-target="#modalSuscriptor" >¡Suscribete!</a>
+          </li>
+          
+            <li class="nav-item">
+              <a  class="nav-link "href="{% url 'carrito' %}" > Mi carrito <i class="fa-solid fa-cart-shopping"   ></i></a>
+            </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white  " href="#" id="navbardrop" data-toggle="dropdown">
+                Username
+              </a>
+              {% if user.is_authenticated %}
+              <div class="dropdown-menu">
+                
+                <a class="dropdown-item" href="{% url 'perfil' %}"><i class="fa-solid fa-house"></i> Mi Perfil </i></a>
+                <a class="dropdown-item" href="{%url 'compras' %}"><i class="fa-solid fa-bag-shopping"></i> Mis compras </i></a>
+                <a class="dropdown-item" href="{%url 'agregar_producto' %}"> <i class="fa-solid fa-cart-plus"></i> Agregar productos </a>
+                <a class="dropdown-item" href="{% url 'listar_producto' %}"> <i class="fa-solid fa-file-pen"></i> Modificar productos </a>
+                <a class="dropdown-item" href="{% url 'listar_user' %}"> <i class="fa-solid fa-user-gear"></i> Modificar usuario </a>
+                
+                <a class="dropdown-item" href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión      </i></a>
+	              {% else %}
+                <div class="dropdown-menu">
+                
+                  <a class="dropdown-item" href="{% url 'login' %}"><i class="fa-solid fa-house"></i> Iniciar sesión </i></a>
+	              {% endif %}
+               
+
+              </div>
+            </li>
+          <li class="">
+              <img src="{% static 'app/img/user.png' %}"  width="70px"  alt="">
+
+        </ul>
+      </div>
+    </nav>
+  
+    <ul class="sidenav teal lighten-4 " id="mobile-links">
+
+   
+
+      
+
+
+
+      <li>
+        <div class="chip">
+          <img src="{% static 'app/img/user.png' %}" alt="Contact Person">
+          Usuario Apellido
+        </div>
+      </li>
+
+      <li >
+        <a  class="nav-link "href="{% url 'carrito'%}"> Mi carrito <i class="fa-solid fa-cart-shopping"   ></i></a>
+      </li>
+      <li>
+        <a class="nav-link " href="{% url 'perfil'%}"><i class="fa-solid fa-house"></i> Mi Perfil </i></a>
+      </li>
+      <li>
+        <a class="nav-link " href="{% url 'compras'%}"><i class="fa-solid fa-bag-shopping"></i> Mis compras </i></a>
+      </li>
+      <li>
+        <a class="nav-link " href="#"><i class="fa-solid fa-heart"></i> Mis favoritos </a>
+      </li>
+      <hr>
+      <li class=""  >
+        <a class="nav-link " href="">Seccion Admin</a>
+    </li>
+      <li>
+        <a class="nav-link" href="{% url 'agregar_producto'%}"> <i class="fa-solid fa-cart-plus"></i> Agregar productos</a>
+      </li>
+      <li>
+        <a class="nav-link" href="{% url 'listar_producto' %}"> <i class="fa-solid fa-file-pen"></i> Modificar productos </a>
+      </li>
+      <li>
+        <a class="nav-link" href="{% url 'listar_user' %}"> <i class="fa-solid fa-user-gear"></i> Modificar usuario </a>
+      </li>
+      <hr>
+      <li class=""  >
+        <a class="nav-link " href="{% url 'user'%}" >Tienda</a>
+    </li>
+    <li>
+      <a class="" href="#" data-toggle="modal" data-target="#modalSuscriptor" >¡Suscribete!</a>
+    </li>
+      
+      
+      </div>
+  
+      <li>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">search</i>
+                <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                <label for="icon_prefix2">Busqueda</label>
+              </div>
+            </div>
+          </form>
+        </div>
+  
+        
+      </li>
+      
+      <li>
+        <a class="nav-link "href="{% url 'index' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión </i></a>
+      </li>
+  
+    </ul>
+  </div>
+    <!-- TERMINO Navbar-->
+    <div id="fondo">
+{% block contenidouser %}
+{% endblock %}
+    <!-- INICIO Productos en cartas-->
+   
+    
+  
+
+  <!-- INICIO Suscriptor-->
+  <div class="modal" id="modalSuscriptor">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header Suscriptor-->
+        <div class="modal-header">
+          <h4 class="modal-title">Suscripción</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body Suscriptor -->
+        <div class="modal-body" id="imgsubs">
+            <img src="{% static 'app/img/suscribir.png' %}" alt="50" width="180" >
+            <form">
+
+            <div class="form-group mt-3">
+              <label for="txtUser">Rut</label>
+              <input type="text" placeholder="ej:13345544-6" class="form-control" name="txtUser" id="txtUser">
+            </div>
+              <div class="form-group mt-3">
+                <label for="txtUser">Nombre</label>
+                <input type="text" placeholder="ej:james" class="form-control" name="txtUser" id="txtUser">
+              </div>
+              <div class="form-group">   
+                <label for="txtUser">Apellido:</label>
+                <input type="text" placeholder="ej:garcia" class="form-control" name="txtUser" id="txtUser">
+              </div>
+              <div class="form-group">
+                <label for="txtUser">Metodo de pago</label>
+                <div class="">
+                  <form action="#">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <p>
+                          <label class="letra mt-3 ">
+                            <input class="with-gap" name="group1" type="radio"  />
+                            <span>Debito</span>
+                          </label>
+                        </p>
+                        <p>
+                          <label>
+                            <input class="with-gap" name="group1" type="radio"  />
+                            <span>Credito</span>
+                          </label>
+                        </p>
+                      </div>
+                      <div class="col-sm-3">
+                        <img src="{% static 'app/img/1933702_charge_credit card_debit_payment_visa_icon.png' %}" width="45px" alt="">
+                        <img src="{% static 'app/img/206680_master_method_card_payment_icon.png' %}" width="40px" alt="">
+                      </div>
+                    </div>
+                    <hr>
+                    <label for="txtUser"><h4>Total:  $4.500</h4></label>
+                  </form>
+                </div>
+              </div>
+              <div>
+
+                <button type="button" class="btn btn-success" data-target="modal">Suscribirse</button>
+                <button type="button" class="btn btn-danger" data-target="modal">Eliminar </button>
+                <button type="button" class="btn btn-info" data-target="modal">Editar</button>
+
+              </div>
+             
+            </form>
+        </div>
+  
+        <!-- Modal footer Suscripción -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    
+    
+
+    <footer class="page-footer teal lighten-4 ">
+      <div class="container ">
+        <div class="row">
+          <div class="col l6 s12">
+            <img src="{% static 'app/img/Logo_Mascota-removebg-preview.png' %}" alt="" width="140">
+            <p class="grey-text text-white "> Entregamos el mejor servicio de compras productos para sus mascotas. </p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Contáctanos</h5>
+            <ul>
+              <li>
+                <a class="grey-text text-white" href="#!"><i class="fa-brands fa-instagram"></i> Instagram</a>
+              </li>
+              <li><a class="grey-text text-white" href="{% static 'app/https://github.com/JaimeAndresG/PGY004' %}"><i class="fa-brands fa-github"></i> GitHub</a>
+              </li>
+              <li><a class="grey-text text-white" href="#!"><i class="fa-brands fa-facebook"></i> Facebook</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright text-white">
+        <div class="container text-center">
+        © 2022 todos los derechos reservados Pets Shop
+        </div>
+      </div>
+    </footer>
+  </div>
+    
+
+
+
+    
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="{% static 'app/js/materialize.js'%}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+   var elems = document.querySelectorAll('.sidenav');
+   var instances = M.Sidenav.init(elems);
+ });
+</script>
+<!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<!--SWEETALERT-->
+
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="{% static 'app/js/alertas.js'%}"></script>
+  {% block css %}
+  {% endblock %}
+  
+
+
+
+</body>
+</html>
